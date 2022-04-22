@@ -13,7 +13,7 @@ import org.springframework.validation.BindingResult;
 
 
 import java.sql.*;
-import com.example.Model.Newuser;
+import com.example.model.Newuser;
 
 @RequestMapping(value = "/Register", method = RequestMethod.POST)
 public class Register {
