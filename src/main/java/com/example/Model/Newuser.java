@@ -5,7 +5,7 @@ import javax.persistence.*;
 public class  Newuser{
     private int uid;
 
-    private String first_name;
+    private String first_names;
 
     private String last_name;
 
