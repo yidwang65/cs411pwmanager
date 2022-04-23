@@ -1,7 +1,7 @@
 package com.example.repository;
 
 import java.sql.*;
-import com.example.model.User;
+import com.example.Model.User;
 
 public class UserRepository {
     static final String DB_URL = "jdbc:mysql://localhost/pwmanager";

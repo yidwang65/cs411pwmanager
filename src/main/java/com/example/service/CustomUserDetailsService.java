@@ -29,7 +29,7 @@ public class CustomUserDetailsService implements UserDetailsService
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {
 
-        com.example.model.User user = UserRepository.getUserByEmail(username);
+        com.example.Model.User user = UserRepository.getUserByEmail(username);
         if (user != null){
             return User.withUsername(user.getEmail())
                     .password(passwordEncoder.encode(user.getPassword()))

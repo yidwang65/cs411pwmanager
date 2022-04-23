@@ -1,6 +1,6 @@
 package com.example.repository;
 
-import com.example.model.User;
+import com.example.Model.User;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
