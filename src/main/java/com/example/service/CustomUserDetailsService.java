@@ -36,6 +36,7 @@ public class CustomUserDetailsService implements UserDetailsService
         com.example.Model.User user = userRepository.findByemail(username);
         return User.withUsername(user.getEmail()).password(passwordEncoder.encode(user.getPassword())).roles("USER").build();
 
+ 
 //        com.example.model.User user = UserRepository.getUserByEmail(username);
 //        if (user != null){
 //            return User.withUsername(user.getEmail())
@@ -44,5 +45,6 @@ public class CustomUserDetailsService implements UserDetailsService
 //        }
 //
 //        return null;
+ 
     }
 }
