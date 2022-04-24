@@ -1,13 +1,15 @@
 package com.example.repository;
 
 import java.sql.*;
+
+
 import com.example.Model.User;
 
 public class UserRepository {
     static final String DB_URL = "jdbc:mysql://localhost/pwmanager";
     static final String USER =
             "root";
-    static final String PASS = "root";
+    static final String PASS = "criesinpain";
 
 
 

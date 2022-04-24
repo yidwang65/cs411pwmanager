@@ -1,7 +1,5 @@
 package com.example.Model;
 
-import javax.persistence.*;
-
 public class  Newuser{
     private int uid;
 

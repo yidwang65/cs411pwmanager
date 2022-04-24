@@ -2,21 +2,40 @@ package com.example.Model;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name = "users")
+@Entity
+@Table(name = "users")
 public class User {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	 @Id
+	 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int uid;
 
+	@Column(nullable = false, unique = true, length = 45)
     private String first_name;
 
+	@Column(nullable = false, unique = true, length = 45)
     private String last_name;
-
+	
+	@Column(nullable = false, unique = true, length = 80)
     private String email;
 
+	@Column(nullable = false, unique = true, length = 45)
     private String password;
 
+	//new
+	/*
+	private boolean enabled;
+	
+	 @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	 @JoinTable(
+		 name = "users_roles",
+		 joinColumns = @JoinColumn(name = "user_id"),
+		 inverseJoinColumns = @JoinColumn(name = "role_id")
+		 )
+		 private Set<Role> roles = new HashSet<>();
+	 
+	//new end
+	*/
+	
     public User(int uid, String first_name, String last_name, String email, String password){
         this.uid = uid;
         this.first_name = first_name;
@@ -24,6 +43,8 @@ public class User {
         this.email = email;
         this.password = password;
     }
+    
+    
 
     @Override
     public String toString() {
