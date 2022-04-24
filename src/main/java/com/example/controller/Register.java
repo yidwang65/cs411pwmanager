@@ -1,6 +1,5 @@
 package com.example.controller;
 
-
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,7 +12,7 @@ import org.springframework.validation.BindingResult;
 
 
 import java.sql.*;
-import com.example.model.Newuser;
+import com.example.Model.Newuser;
 
 @RequestMapping(value = "/Register", method = RequestMethod.POST)
 public class Register {
