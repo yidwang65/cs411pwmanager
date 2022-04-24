@@ -16,6 +16,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.Model.*;
+
 @Service
 public class CustomUserDetailsService implements UserDetailsService
 {
@@ -25,17 +27,24 @@ public class CustomUserDetailsService implements UserDetailsService
     @Autowired
     public JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {
+        com.example.Model.User user = userRepository.findByemail(username);
+        return User.withUsername(user.getEmail()).password(passwordEncoder.encode(user.getPassword())).roles("USER").build();
 
-        com.example.Model.User user = UserRepository.getUserByEmail(username);
-        if (user != null){
-            return User.withUsername(user.getEmail())
-                    .password(passwordEncoder.encode(user.getPassword()))
-                    .roles("USER").build();
-        }
-
-        return null;
+ 
+//        com.example.model.User user = UserRepository.getUserByEmail(username);
+//        if (user != null){
+//            return User.withUsername(user.getEmail())
+//                    .password(passwordEncoder.encode(user.getPassword()))
+//                    .roles("USER").build();
+//        }
+//
+//        return null;
+ 
     }
 }

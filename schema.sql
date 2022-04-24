@@ -1,6 +1,9 @@
 CREATE DATABASE IF NOT EXISTS pwmanager;
 USE pwmanager;
 
+DROP TABLE IF EXISTS Passwords CASCADE;
+DROP TABLE IF EXISTS Folders CASCADE;
+DROP TABLE IF EXISTS Users CASCADE;
 
 CREATE TABLE Users (
 uid int4 AUTO_INCREMENT,
@@ -24,9 +27,16 @@ pid int4 AUTO_INCREMENT,
 password  VARCHAR(100),
 username  VARCHAR(100),
 pw_for VARCHAR(255),
-folder_id INTEGER NOT NULL,
+folder_id INTEGER,
 uid INTEGER NOT NULL,
 CONSTRAINT passwords_pk PRIMARY KEY (pid),
 FOREIGN KEY (folder_id) REFERENCES Folders (folder_id) ON DELETE CASCADE,
 FOREIGN KEY (uid) REFERENCES Users (uid)
 );
+
+INSERT INTO users VALUES(1,'john','smith','john123@gmail.com','password123');
+INSERT INTO users VALUES(2,'mary','jane','maryjane@gmail.com','password');
+INSERT INTO folders VALUES(1,'johnFolder1',1);
+INSERT INTO folders VALUES(2,'johnFolder2',1);
+INSERT INTO passwords VALUES(1,'gmailpassword','gmailusername','gmail',1,1);
+INSERT INTO passwords VALUES(2,'yahoopassword','yahoousername','yahoo',1,1);
