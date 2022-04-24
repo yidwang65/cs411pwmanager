@@ -40,3 +40,4 @@ INSERT INTO folders VALUES(1,'johnFolder1',1);
 INSERT INTO folders VALUES(2,'johnFolder2',1);
 INSERT INTO passwords VALUES(1,'gmailpassword','gmailusername','gmail',1,1);
 INSERT INTO passwords VALUES(2,'yahoopassword','yahoousername','yahoo',1,1);
+INSERT INTO passwords VALUES(3,'yahoo2password','yahoo2username','yahoo',2,2);

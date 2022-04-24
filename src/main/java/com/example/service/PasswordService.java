@@ -34,6 +34,10 @@ public class PasswordService
     public List<Password> getAllPasswords(){
         return passwordRepository.findAll();
     }
-
+    
+    //searches and returns password that matches keyword
+    public List<Password> getByKeyword(String keyword){
+    	return passwordRepository.findByKeyword(keyword);
+    }
 
 }

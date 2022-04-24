@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.validation.BindingResult;
 
-
-
-
 import java.sql.*;
 import com.example.Model.Newuser;
 
