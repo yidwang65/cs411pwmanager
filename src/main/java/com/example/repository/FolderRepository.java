@@ -1,6 +1,6 @@
 package com.example.repository;
 
-import com.example.Model.Folder;
+import com.example.model.Folder;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
