@@ -30,3 +30,10 @@ CONSTRAINT passwords_pk PRIMARY KEY (pid),
 FOREIGN KEY (folder_id) REFERENCES Folders (folder_id) ON DELETE CASCADE,
 FOREIGN KEY (uid) REFERENCES Users (uid)
 );
+
+INSERT INTO users VALUES(1,'john','smith','john123@gmail.com','password123');
+INSERT INTO users VALUES(2,'mary','jane','maryjane@gmail.com','password');
+INSERT INTO folders VALUES(1,'johnFolder1',1);
+INSERT INTO folders VALUES(2,'johnFolder2',1);
+INSERT INTO passwords VALUES(1,'gmailpassword','gmailusername','gmail',1,1);
+INSERT INTO passwords VALUES(2,'yahoopassword','yahoousername','yahoo',1,1);

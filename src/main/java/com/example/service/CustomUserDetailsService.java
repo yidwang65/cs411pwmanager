@@ -25,17 +25,22 @@ public class CustomUserDetailsService implements UserDetailsService
     @Autowired
     public JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException
     {
+        com.example.model.User user = userRepository.findByemail(username);
+        return User.withUsername(user.getEmail()).password(passwordEncoder.encode(user.getPassword())).roles("USER").build();
 
-        com.example.model.User user = UserRepository.getUserByEmail(username);
-        if (user != null){
-            return User.withUsername(user.getEmail())
-                    .password(passwordEncoder.encode(user.getPassword()))
-                    .roles("USER").build();
-        }
-
-        return null;
+//        com.example.model.User user = UserRepository.getUserByEmail(username);
+//        if (user != null){
+//            return User.withUsername(user.getEmail())
+//                    .password(passwordEncoder.encode(user.getPassword()))
+//                    .roles("USER").build();
+//        }
+//
+//        return null;
     }
 }
