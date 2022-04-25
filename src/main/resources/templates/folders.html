@@ -26,33 +26,21 @@
 	</div>
 	
 	
-	<div id="passwords">
-		<h2>Your passwords:</h2>
-		<!-- lists passwords -->
+	<div id="folders">
+		<h2>Your folders:</h2>
+		<!-- lists your folders-->
 		<table>
 		    <thead>
 			    <tr>
-			        <th> username </th>
-			        <th> password </th>
-			        <th> pw_for </th>
-			        <th> folder </th>
+			        <th> folder name </th>
 			    </tr>
 		    </thead>
 		    <tbody>
-		    <tr th:if="${passwords.empty}">
-		        <td colspan="2"> No Passwords Stored! </td>
+		    <tr th:if="${folders.empty}">
+		        <td colspan="2"> No Folders Created </td>
 		    </tr>
-		    <tr th:each="password : ${passwords}">
-		        <td><span th:text="${password.getUsername()}"> username </span></td>
-		        <td><span th:text="${password.getPassword()}"> password </span></td>
-		        <td><span th:text="${password.getPw_for()}"> for </span></td>
-		        <td><span th:text="${password.getFolder().getFolder_id()}"> folder </span></td>
-		        <td>
-		            <form  th:action="@{/password/delete}"  method="post">
-		                <input type="hidden" name="pid" th:value="${password.getPid()}"   />
-		                <input type="submit" value="Delete" />
-		            </form>
-		        </td>
+		    <tr th:each="folder : ${folders}">
+		        <td><span th:text="${folder.getFname()}"> foldername </span></td>
 		    </tr>
 		    </tbody>
 		</table>

@@ -9,9 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/simple")
 public class SimpleController {
 
-    @GetMapping("/testing")
-    public String homePage(Model model) {
-        model.addAttribute("appName", "TESTING");
-        return "home";
-    }
+   // @GetMapping("/testing")
+    //public String homePage(Model model) {
+     //  model.addAttribute("appName", "TESTING");
+      //  return "home";
+    //}
+    
+    
+	 @GetMapping("")
+	 public String viewHomePage() {
+		 return "home";
+	 }
+    
 }
