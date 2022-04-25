@@ -8,11 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.example.model.Folder;
 import com.example.repository.FolderRepository;
+import com.example.service.FolderService;
+import com.example.service.PasswordService;
 
 @Controller
 public class FolderController {
-	  @Autowired
+		@Autowired
 	    private FolderRepository folderRepo;
+		
+	    @Autowired
+	   	FolderService folderService;
 	     
 	    @GetMapping("")
 	    public String viewHomePage() {
@@ -25,8 +30,13 @@ public class FolderController {
 	        return "createFolder";
 	    }
 	    
+	    //to display created folders on the html 
+	    @GetMapping("/allFolders")
+	    public String getAllFolders(Model model){
+	        model.addAttribute("folders", folderService.getAllFolders());
+	        return "password";
+	    }
 
-	
 	    @PostMapping("/process_folder")
 	    public String processFolder(Folder folder) {
 	        

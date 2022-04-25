@@ -1,13 +1,11 @@
 package com.example.service;
 
 import java.sql.ResultSet;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.model.Password;
-import com.example.repository.PasswordRepository;
+import com.example.repository.FolderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -18,25 +16,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.model.Folder;
+
 @Service
-public class PasswordService
-{
+public class FolderService {
 
     @Autowired
-    private PasswordRepository passwordRepository;
+    private FolderRepository folderRepo;
 
-    public boolean deletePassword(int pid){
-        passwordRepository.deleteBypid(pid);
-        return true;
-    }
-
-    public List<Password> getAllPasswords(){
-        return passwordRepository.findAll();
+    public List<Folder> getAllFolders(){
+        return folderRepo.findAll();
     }
     
-    //searches and returns password that matches keyword
-    public List<Password> getByKeyword(String keyword){
-    	return passwordRepository.findByKeyword(keyword);
-    }
-
 }
