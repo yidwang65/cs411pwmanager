@@ -38,5 +38,10 @@ public class PasswordService
     public List<Password> getByKeyword(String keyword){
     	return passwordRepository.findByKeyword(keyword);
     }
+    
+    //searches and returns password that matches folderid
+    public List<Password> getByFolderid(Integer folderid){
+    	return passwordRepository.findByFolderid(folderid); 
+    }
 
 }

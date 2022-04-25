@@ -15,17 +15,7 @@
 
 <body>
 	<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1><br>
-	
-	<div id ="search">
-	<!--  search passwords -->
-	<form th:action="@{/password/search}" method="get">
-		<input type="text" name="keyword" th:value="${keyword}"  placeholder="Find by keyword" size="50" >
-		<button type="submit" class="btn btn-info" >Search</button>
-		<button type="submit" class="btn btn-info" >Reset</button>
-	</form>
-	</div>
-	
-	
+
 	<div id="folders">
 		<h2>Your folders:</h2>
 		<!-- lists your folders-->
@@ -40,8 +30,18 @@
 		        <td colspan="2"> No Folders Created </td>
 		    </tr>
 		    <tr th:each="folder : ${folders}">
-		        <td><span th:text="${folder.getFname()}"> foldername </span></td>
+		    <!-- 
+		        <td><span th:text="${folder.getFname()}"> foldername </span></td> -->
+		        
+		        <td>
+			        <form th:action="@{/password/inFolder}" method="get">
+						<input type="hidden" name="folderid" th:value="${folder.getFolder_id()}" >
+						<button type="submit" class="btn btn-info"  th:text="${folder.getFname()}" ></button>
+					</form>
+		        
+		        </td>
 		    </tr>
+		  
 		    </tbody>
 		</table>
 	</div>
