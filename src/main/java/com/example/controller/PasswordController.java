@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.Model.Password;
+import com.example.model.Password;
 import com.example.service.PasswordService;
 
 import java.util.List;

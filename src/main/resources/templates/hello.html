@@ -9,8 +9,11 @@
 	<body>
 		<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
 		
-		<a href = "/password">My Passwords</a>
-		
+		 <div>
+	        <p><a th:href="@{/createFolder}">Create Folder</a></p>
+	        <a href = "/password">My Passwords</a>
+		</div>
+	
 		<footer>
 			<form th:action="@{/logout}" method="post">
 		    <input type="submit" value="Sign Out"/>
