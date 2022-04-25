@@ -2,6 +2,7 @@ package com.example.repository;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,6 +19,7 @@ public interface PasswordRepository  extends JpaRepository<Password, Long>{
     Long deleteBypid(int pid);
     
     //custom query
-    @Query(value = "SELECT * FROM passwords p WHERE p.password LIKE %:keyword% OR p.username LIKE %:keyword% OR p.pw_for LIKE %:keyword%", nativeQuery = true)
+    @Query(value = "SELECT * FROM passwords p WHERE p.password LIKE %:keyword% OR p.username LIKE %:keyword% OR p.pw_for LIKE %:keyword%", 
+    		nativeQuery = true)
     List<Password> findByKeyword(@Param("keyword") String keyword);
 }

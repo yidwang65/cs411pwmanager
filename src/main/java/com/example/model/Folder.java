@@ -16,28 +16,45 @@ public class Folder {
     private String fname;
 
     //need to foreign reference user too
-    @ManyToOne(cascade = CascadeType.ALL)
+    //@ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "uid", referencedColumnName="uid")
-    User user;
-
+    private Integer uid;
+    //private User user;
+    
+    
     //getters and setters
+  	public Integer getFolder_id() {
+  		return folder_id;
+  	}
 
+  	public void setFolder_id(Integer folder_id) {
+  		this.folder_id = folder_id;
+  	}
 
-    public int getFolder_id() {
-        return folder_id;
+  	public String getFname() {
+  		return fname;
+  	}
+
+  	public void setFname(String fname) {
+  		this.fname = fname;
+  	}
+
+  	/*
+    public User getUser() {
+        return user;
     }
-
-    public void setFolder_id(int folder_id) {
-        this.folder_id = folder_id;
+    public void setUser(User user) {
+        this.user = user;
     }
+    */
 
-    public String getFname() {
-        return fname;
-    }
+  	public Integer getUid() {
+  		return uid;
+  	}
 
-    public void setFname(String fname) {
-        this.fname = fname;
-    }
+  	public void setUid(Integer uid) {
+  		this.uid = uid;
+  	}
 
     @Override
     public String toString() {
