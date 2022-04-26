@@ -2,6 +2,7 @@ package com.example.service;
 
 import java.util.List;
 
+
 import com.example.model.Password;
 import com.example.repository.PasswordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,11 @@ public class PasswordService
     //searches and returns password that matches passwordid
     public Password getByPasswordid(Integer passwordid){
     	return passwordRepository.findByPasswordId(passwordid); 
+    }
+    
+    //searches for password that matches passwordid and updates folderid
+    public Password updatePwFolderid(Integer folderid, Integer passwordid) {
+    	return passwordRepository.updatePasswordFolder_id(folderid, passwordid);
     }
 
 

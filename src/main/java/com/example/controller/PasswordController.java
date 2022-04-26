@@ -86,6 +86,16 @@ public class PasswordController {
         return "redirect:/password";
     }
     
+    
+    @PostMapping("/updatePassword")
+    public String updatePassword(@ModelAttribute("form") @RequestParam(name = "pid") String pid, @RequestParam(name = "folder_id")  String folderid) {
+    	int id = Integer.parseInt(pid);
+    	int folder_id = Integer.parseInt(folderid);
+    	passwordService.updatePwFolderid(folder_id, id);
+    	return "redirect:/password";
+    }
+    
+    
     @GetMapping("/showUpdateForm")
     public ModelAndView showUpdateForm(@RequestParam(name = "pid") String pid) {
         int id = Integer.parseInt(pid);
