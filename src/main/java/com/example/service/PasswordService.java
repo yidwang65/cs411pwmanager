@@ -40,4 +40,7 @@ public class PasswordService
     	return passwordRepository.findByKeyword(keyword);
     }
 
+    public Password save(Password pass){
+        return passwordRepository.save(pass);
+    }
 }

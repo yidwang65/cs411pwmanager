@@ -23,10 +23,6 @@ public class PasswordController {
     @Autowired
     PasswordService passwordService;
 
-    @Autowired
-    private PasswordRepository PassRepo;
-
-
     @GetMapping()
     public String getAll(Model model){
         model.addAttribute("passwords", passwordService.getAllPasswords());
@@ -71,9 +67,9 @@ public class PasswordController {
         pass.setPassword(pass.getPassword());
         pass.setPw_for(pass.getPw_for());
         pass.setUser(pass.getUser());
-        PassRepo.save(pass);
+        passwordService.save(pass);
          
-        return "createSuccess";
+        return "createPassSuccess";
     }
 
 }
