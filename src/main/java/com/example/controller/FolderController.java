@@ -35,7 +35,7 @@ public class FolderController {
 	  //     return "home";
 	   // }
 
-//		@RequestMapping(path = "/", method = RequestMethod.GET)
+		//@RequestMapping(path = "/", method = RequestMethod.GET)
 		@GetMapping()
 	    public String getFolders(Model model) {
 	   	model.addAttribute("folders", folderService.getAllFolders());

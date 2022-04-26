@@ -27,5 +27,10 @@ public interface PasswordRepository  extends JpaRepository<Password, Long>{
     //custom query to find passwords belonging to a specific folder
     @Query(value = "SELECT * FROM passwords p WHERE p.folder_id = :folderid", nativeQuery = true)
     List<Password> findByFolderid(@Param("folderid") Integer folderid);
+    
+    //custom query to find specific password row
+    @Query(value = "SELECT * FROM passwords p WHERE p.pid = :passwordid", 
+    		nativeQuery = true)
+    Password findByPasswordId(@Param("passwordid") Integer passwordid);
    
 }
