@@ -81,9 +81,9 @@ public class PasswordController {
     }
     
     @PostMapping("/savePassword")
-    public String savePassword(@ModelAttribute Password password) {
+    public String savePassword(@ModelAttribute("form") Password password) {
     	passwordRepo.save(password);
-    	return "redirect:/password";
+        return "redirect:/password";
     }
     
     @GetMapping("/showUpdateForm")
