@@ -1,6 +1,7 @@
 package com.example.controller;
 
-import com.example.model.Password;
+import com.example.Model.Password;
+import com.example.repository.PasswordRepository;
 import com.example.service.PasswordService;
 
 import java.util.List;
@@ -21,6 +22,10 @@ public class PasswordController {
 
     @Autowired
     PasswordService passwordService;
+
+    @Autowired
+    private PasswordRepository PassRepo;
+
 
     @GetMapping()
     public String getAll(Model model){
@@ -48,6 +53,27 @@ public class PasswordController {
     		model.addAttribute("passwords", list);
     	}
     	return "password";
+    }
+
+    @GetMapping("/createPassword")
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("password", new Password()); 
+        return "createPassword";
+    }
+    
+
+
+    @PostMapping("/process_password")
+    public String processPassword(Password pass) {
+                
+        pass.setUsername(pass.getUsername());
+        pass.setFolder(pass.getFolder());
+        pass.setPassword(pass.getPassword());
+        pass.setPw_for(pass.getPw_for());
+        pass.setUser(pass.getUser());
+        PassRepo.save(pass);
+         
+        return "createSuccess";
     }
 
 }

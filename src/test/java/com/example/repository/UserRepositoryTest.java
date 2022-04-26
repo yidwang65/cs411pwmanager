@@ -28,8 +28,7 @@ import static org.junit.Assert.*;
 
 public class UserRepositoryTest {
 
-    @Test
-    public void getAllUsers() {
+    /*public void getAllUsers() {
         UserRepository.getAllUsers();
     }
 
@@ -37,6 +36,6 @@ public class UserRepositoryTest {
     public void getUserByEmail(){
         User user = UserRepository.getUserByEmail("john123@gmail.com");
         System.out.println(user);
-    }
+    }*/
 }
  
