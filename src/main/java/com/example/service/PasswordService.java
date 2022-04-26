@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.example.model.Password;
 import com.example.repository.PasswordRepository;
-import com.example.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -38,6 +37,11 @@ public class PasswordService
     //searches and returns password that matches keyword
     public List<Password> getByKeyword(String keyword){
     	return passwordRepository.findByKeyword(keyword);
+    }
+    
+    //searches and returns password that matches folderid
+    public List<Password> getByFolderid(Integer folderid){
+    	return passwordRepository.findByFolderid(folderid); 
     }
 
 }

@@ -18,8 +18,14 @@ public interface PasswordRepository  extends JpaRepository<Password, Long>{
 
     Long deleteBypid(int pid);
     
-    //custom query
+    //custom query to find passwords containing keywords
     @Query(value = "SELECT * FROM passwords p WHERE p.password LIKE %:keyword% OR p.username LIKE %:keyword% OR p.pw_for LIKE %:keyword%", 
     		nativeQuery = true)
     List<Password> findByKeyword(@Param("keyword") String keyword);
+    
+    
+    //custom query to find passwords belonging to a specific folder
+    @Query(value = "SELECT * FROM passwords p WHERE p.folder_id = :folderid", nativeQuery = true)
+    List<Password> findByFolderid(@Param("folderid") Integer folderid);
+   
 }

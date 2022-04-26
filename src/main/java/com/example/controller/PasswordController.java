@@ -37,10 +37,25 @@ public class PasswordController {
         return "redirect:/password";
     }
     
+    //search passwords with a keyword
     @RequestMapping(path = {"/search"})
     public String home(Password password, Model model, String keyword) {
     	if(keyword!=null) {
     		List<Password> list = passwordService.getByKeyword(keyword);
+            model.addAttribute("passwords", list);	
+    	}
+    	else {
+    		List<Password> list = passwordService.getAllPasswords();
+    		model.addAttribute("passwords", list);
+    	}
+    	return "password";
+    }
+    
+    //return passwords belonging to a specified folder
+    @RequestMapping(path = {"/inFolder"})
+    public String folderpw(Password password, Model model, Integer folderid) {
+    	if(folderid!=null) {
+    		List<Password> list = passwordService.getByFolderid(folderid);
             model.addAttribute("passwords", list);	
     	}
     	else {
