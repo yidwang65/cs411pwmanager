@@ -25,6 +25,7 @@
 		    <thead>
 			    <tr>
 			        <th> folder name </th>
+			        <th> folder id </th>
 			    </tr>
 		    </thead>
 		    <tbody>
@@ -39,8 +40,9 @@
 						<input type="hidden" name="folderid" th:value="${folder.getFolder_id()}" >
 						<button type="submit" class="btn btn-info"  th:text="${folder.getFname()}" ></button>
 					</form>
-		        
 		        </td>
+		        
+		        <td><button id="folderidbutton" th:text="${folder.getFolder_id()}"> </button></td>
 		    </tr>
 		  
 		    </tbody>

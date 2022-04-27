@@ -4,22 +4,53 @@
       
 	<head>
 	    <title>Hello World!</title>
+	    
+	    <!-- CSS to make the button look like a hyperlink -->
+	    <style>
+			    .btn-link{
+				  border:none;
+				  outline:none;
+				  background:none;
+				  cursor:pointer;
+				  color:#0000EE;
+				  padding:0;
+				  text-decoration:underline;
+				  font-family:inherit;
+				  font-size:inherit;
+				}
+				.btn-link:active{
+				  color:#FF0000;
+				}
+	   </style>
 	</head>
 	
 	<body>
-		<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
 		
-		 <div>
-	       	<p><a href = "/password">My Passwords</a></p>
-	       	<p><a href = "/folders">My Folders</a></p>
+		<!--header-->
+		<div id="header">
+			<h1>Password Manager</h1>
 		</div>
-	
-	
-		<footer>
-			<form th:action="@{/logout}" method="post">
-		    <input type="submit" value="Sign Out"/>
-		</form>
 		
+		<!-- nav menu -->
+		 <div id="navmenu">
+		 	<ul>
+		 		<li><a href = "/password">My Passwords</a></li>
+		 		<li><a href = "/folders">My Folders</a></li>
+		 		<li>
+			 		<form th:action="@{/logout}" method="post">
+					    <button type="submit" value="Sign Out" class="btn-link">Sign Out</button>
+					</form>				
+		 		</li>
+		 	</ul>
+		</div>
+		<!-- nav menu -->
+		
+		<!-- Greeting -->
+		<h3 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h3>
+			<p>Store your passwords, organize them into your own folders, and manage them here. </p>
+		
+		<footer>
+			<p>Group26 Ibrahim CS411</p>
 		</footer>
 	</body>
 
