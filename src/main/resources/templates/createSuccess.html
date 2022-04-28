@@ -1,21 +1,55 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Create Folder Success</title>
-    <!--  
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
-	-->
+    <title> G26 | Create Folder Success</title>
+    <meta charset="utf-8">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+    <!--font-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Solway:wght@300;400;500;700;800&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.css" th:href="@{/css/main.css}"/>
 </head>
 
 <body>
-    <div class="container text-center">
+    <!--header-->
+	<div id="header">
+		<h1>Password Manager</h1>
+	</div>
+	<!--header end-->
+
+	<!-- nav menu -->
+	<div id="navmenu">
+		<ul>
+		 	<li><a href = "/password">My Passwords</a></li>
+		 	<li><a href = "/folders">My Folders</a></li>
+		 	<li>
+			 	<form th:action="@{/logout}" method="post">
+					<button type="submit" value="Sign Out" class="btn-link">Sign Out</button>
+				</form>				
+		 	</li>
+		</ul>
+	</div>
+	<!-- nav menu end-->
+
+    <!--main-->
+    <div class="main">
         <h3>You have created a folder successfully!</h3>
-        <!-- 
-        <h4><a th:href="@{/folders}">Click here to see folders</a></h4>
-         -->
-       	<a href = "/hello">go back to hello page</a>
+        <!--<h4><a th:href="@{/folders}">Click here to see folders</a></h4>-->
     </div>
-     
+    <!--main end-->
+
+    <!--footer-->
+    <footer>
+        <p>Group26 Ibrahim CS411</p>
+    </footer>
+    <!--footer-->
+
 </body>
 </html>
