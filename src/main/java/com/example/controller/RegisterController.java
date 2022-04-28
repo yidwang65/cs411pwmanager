@@ -21,7 +21,7 @@ public class RegisterController {
 
 
 
-  @RequestMapping(value = "/", method = RequestMethod.POST)
+  @RequestMapping(value = "", method = RequestMethod.POST)
   public String createUser(Model model, @ModelAttribute User user) {
     User u = userService.createUser(user);
     return "home";
