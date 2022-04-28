@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.Model.Password;
+import com.example.Model.User;
 import com.example.repository.PasswordRepository;
 import com.example.service.PasswordService;
 
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,25 +53,12 @@ public class PasswordController {
     	return "password";
     }
 
-    @GetMapping("/createPassword")
-    public String showRegistrationForm(Model model) {
-        model.addAttribute("password", new Password()); 
-        return "createPassword";
-    }
-    
 
 
-    @PostMapping("/process_password")
-    public String processPassword(Password pass) {
-                
-        pass.setUsername(pass.getUsername());
-        pass.setFolder(pass.getFolder());
-        pass.setPassword(pass.getPassword());
-        pass.setPw_for(pass.getPw_for());
-        pass.setUser(pass.getUser());
-        passwordService.save(pass);
-         
-        return "createPassSuccess";
+    @PostMapping(value = "/createPassword")
+    public String createUser(Model model, @ModelAttribute Password password) {
+      Password p = passwordService.save(password);
+      return "home";
     }
 
 }
