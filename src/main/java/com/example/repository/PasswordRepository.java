@@ -6,9 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import com.example.model.Password;
 
 import java.util.List;
+
+import com.example.model.Password;
 
 //<domain model class, type of primary key>
 @Repository
@@ -17,7 +18,7 @@ public interface PasswordRepository  extends JpaRepository<Password, Long>{
     Long deleteBypid(int pid);
     
     //custom query to find passwords containing keywords
-    @Query(value = "SELECT * FROM passwords p WHERE p.password LIKE %:keyword% OR p.username LIKE %:keyword% OR p.pw_for LIKE %:keyword%", 
+    @Query(value = "SELECT * FROM passwords p WHERE p.inputpassword LIKE %:keyword% OR p.username LIKE %:keyword% OR p.pw_for LIKE %:keyword%", 
     		nativeQuery = true)
     List<Password> findByKeyword(@Param("keyword") String keyword);
     

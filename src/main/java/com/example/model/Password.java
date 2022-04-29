@@ -11,7 +11,7 @@ public class Password  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pid;
 
-    private String password;
+    private String inputpassword;
     private String username;
     private String pw_for;
 
@@ -33,12 +33,12 @@ public class Password  {
         this.pid = pid;
     }
 
-    public String getPassword() {
-        return password;
+    public String getinputpassword() {
+        return inputpassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setinputpassword(String inputpassword) {
+        this.inputpassword = inputpassword;
     }
 
     public String getUsername() {

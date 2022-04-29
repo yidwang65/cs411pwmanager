@@ -25,7 +25,7 @@ public class User  {
 
     private String password;
 
-    protected User() {}
+    public User(){}
 
     public User(int uid, String first_name, String last_name, String email, String password){
         this.uid = uid;

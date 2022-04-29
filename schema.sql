@@ -24,7 +24,7 @@ FOREIGN KEY (uid) REFERENCES Users(uid)
 
 CREATE TABLE Passwords(
 pid int4 AUTO_INCREMENT,
-password  VARCHAR(100),
+inputpassword  VARCHAR(100),
 username  VARCHAR(100),
 pw_for VARCHAR(255),
 folder_id INTEGER,

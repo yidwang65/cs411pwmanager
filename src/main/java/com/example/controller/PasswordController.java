@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/password")
 public class PasswordController {
 
     @Autowired
@@ -28,14 +27,14 @@ public class PasswordController {
     private PasswordRepository passwordRepo;
     
 
-	@GetMapping()
+	@GetMapping("/password")
     public String getAll(Model model){
         model.addAttribute("passwords", passwordService.getAllPasswords());
         return "password";
     }
 
     @Transactional
-    @PostMapping("/delete")
+    @PostMapping("/password/delete")
     public String delete(@RequestParam(name = "pid") String pid) {
         System.out.println(pid);
         int id = Integer.parseInt(pid);
@@ -44,7 +43,7 @@ public class PasswordController {
     }
     
     //search passwords with a keyword
-    @RequestMapping(path = {"/search"})
+    @RequestMapping(path = {"/password/search"})
     public String home(Password password, Model model, String keyword) {
     	if(keyword!=null) {
     		List<Password> list = passwordService.getByKeyword(keyword);
@@ -58,7 +57,7 @@ public class PasswordController {
     }
     
     //return passwords belonging to a specified folder
-    @RequestMapping(path = {"/inFolder"})
+    @RequestMapping(path = {"/password/inFolder"})
     public String folderpw(Password password, Model model, Integer folderid) {
     	if(folderid!=null) {
     		List<Password> list = passwordService.getByFolderid(folderid);
@@ -72,7 +71,7 @@ public class PasswordController {
     }
     
     //updates new password
-    @GetMapping("/addPasswordForm")
+    @GetMapping("/password/addPasswordForm")
     public ModelAndView addPasswordForm() {
     	ModelAndView mav = new ModelAndView("add-password-form");
     	Password newPassword = new Password();
@@ -80,13 +79,13 @@ public class PasswordController {
     	return mav;
     }
     
-    @PostMapping("/savePassword")
+    @PostMapping("/password/savePassword")
     public String savePassword(@ModelAttribute("form") Password password) {
     	passwordRepo.save(password);
         return "redirect:/password";
     }
     
-    @GetMapping("/showUpdateForm")
+    @GetMapping("/password/showUpdateForm")
     public ModelAndView showUpdateForm(@RequestParam(name = "pid") String pid) {
         int id = Integer.parseInt(pid);
     	ModelAndView mav = new ModelAndView("add-password-form");
@@ -94,7 +93,17 @@ public class PasswordController {
     	mav.addObject("password", password);
     	return mav;
     }
-    
+    @GetMapping("/CreatePassword")
+    public String AddPassForm(Model model) {
+        model.addAttribute("password", new Password());
+        return "createPassword";
+	}
+
+    @PostMapping(value = "/CreatePassword")
+    public String createUser(@ModelAttribute Password password){
+      Password p = passwordService.save(password);
+      return "redirect:/password";
+    }
     
     
 }
