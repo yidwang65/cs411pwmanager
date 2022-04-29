@@ -21,22 +21,9 @@
 			<h1>Password Manager</h1>
 		</div>
 		<!--header end-->
-	<!-- nav menu -->
-	<div id="navmenu">
-		<ul>
-			<li><a href = "/password">My Passwords</a></li>
-			<li><a href = "/folders">My Folders</a></li>
-			<li>
-				<form th:action="@{/logout}" method="post">
-					<button type="submit" value="Sign Out" class="btn-link">Sign Out</button>
-				</form>				
-			</li>
-		</ul>
-	</div>
-	<!-- nav menu end-->
 
 	<div class="main">
-	<h3>Update Password</h3>
+	<h3>Register</h3>
     <form class="col card p-3 mb-5" method="post" th:action="@{/register}" th:object="${user}">
       <div class="form-group">
         <label for="firstName">First Name</label>
