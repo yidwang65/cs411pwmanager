@@ -18,25 +18,25 @@
     <form class="col card p-3 mb-5" method="post" th:action="@{/register}" th:object="${user}">
       <div class="form-group">
         <label for="firstName">First Name</label>
-        <input class="form-control" id="firstName" placeholder="Enter First Name" required
-               th:field="*{first_name}"
+        <input class="form-control" name="firstName" placeholder="Enter First Name" required
+               th:field="*{first_name}" 
                type="text"/>
       </div>
       <div class="form-group">
         <label for="lastName">Last Name</label>
-        <input class="form-control" id="lastName" placeholder="Enter Last Name" required
+        <input class="form-control" name="lastName" placeholder="Enter Last Name" required
                th:field="*{last_name}"
                type="text"/>
       </div>
       <div class="form-group">
         <label for="role">Email</label>
-        <input class="form-control" id="email" placeholder="Enter Email" required
+        <input class="form-control" name="email" placeholder="Enter Email" required
                th:field="*{email}"
                type="text"/>
       </div>      
       <div class="form-group">
         <label for="role">Password</label>
-        <input class="form-control" id="password" placeholder="Enter Password" required
+        <input class="form-control" name="password" placeholder="Enter Password" required
                th:field="*{password}"
                type="password"/>
       </div>

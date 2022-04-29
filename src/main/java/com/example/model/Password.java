@@ -11,17 +11,17 @@ public class Password  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int pid;
 
-    private String password;
+    private String inputpassword;
     private String username;
     private String pw_for;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    //@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "folder_id", referencedColumnName="folder_id")
-    private Folder folder;
+    private Integer folder_id;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    //@OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "uid", referencedColumnName="uid")
-    private User user;
+    private Integer uid;
 
     public int getPid() {
         return pid;
@@ -31,12 +31,12 @@ public class Password  {
         this.pid = pid;
     }
 
-    public String getPassword() {
-        return password;
+    public String getinputpassword() {
+        return inputpassword;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setinputpassword(String inputpassword) {
+        this.inputpassword = inputpassword;
     }
 
     public String getUsername() {
@@ -55,19 +55,19 @@ public class Password  {
         this.pw_for = pw_for;
     }
 
-    public Folder getFolder() {
-        return folder;
+    public Integer getFolder_id() {
+        return folder_id;
     }
 
-    public void setFolder(Folder folder) {
-        this.folder = folder;
+    public void setFolder_id(Integer folder_id) {
+        this.folder_id = folder_id;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getUid() {
+        return uid;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUid(Integer uid) {
+        this.uid = uid;
     }
 }

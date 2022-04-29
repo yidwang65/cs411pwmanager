@@ -19,20 +19,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.data.repository.query.Param;
 
 @Controller
-@RequestMapping("/password")
 public class PasswordController {
 
     @Autowired
     PasswordService passwordService;
 
-    @GetMapping()
+    @GetMapping("/password")
     public String getAll(Model model){
         model.addAttribute("passwords", passwordService.getAllPasswords());
         return "password";
     }
 
     @Transactional
-    @PostMapping("/delete")
+    @PostMapping("/password/delete")
     public String delete(@RequestParam(name = "pid") String pid) {
         System.out.println(pid);
         int id = Integer.parseInt(pid);
@@ -40,7 +39,7 @@ public class PasswordController {
         return "redirect:/password";
     }
     
-    @RequestMapping(path = {"/search"})
+    @RequestMapping(path = {"/password/search"})
     public String home(Password password, Model model, String keyword) {
     	if(keyword!=null) {
     		List<Password> list = passwordService.getByKeyword(keyword);
@@ -54,11 +53,16 @@ public class PasswordController {
     }
 
 
+    @GetMapping("/CreatePassword")
+    public String AddPassForm(Model model) {
+        model.addAttribute("password", new Password());
+        return "createPassword";
+	}
 
-    @PostMapping(value = "/createPassword")
-    public String createUser(Model model, @ModelAttribute Password password) {
+    @PostMapping(value = "/CreatePassword")
+    public String createUser(@ModelAttribute Password password){
       Password p = passwordService.save(password);
-      return "home";
+      return "redirect:/password";
     }
 
 }
